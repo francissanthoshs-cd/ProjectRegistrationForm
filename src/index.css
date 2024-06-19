@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*css for Time Log page - app*/
+.TimeLogApp{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+}
+
+.TimeLogContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+}
+/*header*/
+.headerContainer{
+  display: flex; 
+  flex-direction: row; 
+  width: 100%; 
+  height: 5rem; 
+  background-color: #ffffff;
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+.flex-column {
+  display: flex; 
+  flex-direction: column; 
+}
+.header-text {
+  font-size: 1.875rem;
+  color: #93c5fd;
+}
+.header-sub-text{
+  font-size: 0.875rem;
+  color: #94a3b8; 
+  font-weight: 500; 
+}
+.header-left-div{
+  display: flex;
+  flex-direction: row; 
+  gap: 0.5rem;
+}
+.search{
+  position: relative; 
+  width: 100%; 
+}
+.custom-input {
+  background-color: #f3f4f6; 
+  border: 1px solid transparent; 
+  color: #111827;
+  font-size: 0.75rem;
+  border-radius: 9999px; 
+  height: 2rem; 
+  padding: 0.625rem 0.625rem 0.625rem 1.0625rem; 
+  margin-top: 0.25rem;
+  display: block;
+  transition: all 0.3s; 
+}
+
+.custom-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.custom-input.dark {
+  background-color: #374151;
+  color: #ffffff; 
+}
+
+.custom-input.dark::placeholder {
+  color: #9ca3af; 
+}
+
+.custom-input.dark:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); 
+  border-color: #3b82f6; 
+}
+
+.custom-input.expanded {
+  width: 20rem; 
+}
+
+.custom-input.collapsed {
+  width: 16rem; 
+}
+.searchButton{
+  position: absolute;
+  top: 0;
+  bottom: 0; 
+  right: 0; 
+  display: flex; 
+  align-items: center; 
+  padding-right: 0.75rem;
+}
+.notificationNumber{
+  position: absolute;
+  z-index: 20; 
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px; 
+  top: 0; 
+  right: 0; 
+  color: #ffffff; 
+  border: 2px solid #ffffff;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: #3F99D6; 
+}
+.number{
+    font-size: 9px; 
+  
+}
+.search-absolute {
+  position: absolute;
+  top: 0;
+  bottom: 0; 
+  right: 0; 
+  display: flex; 
+  align-items: center;
+  padding-right: 0.75rem; 
+}
+.profileStatus{
+  position: relative;
+}
+.notifBell{
+  z-index: 10; 
+  margin-top: 0.20rem;
+}
+.profileimg{
+  z-index: 10; 
+  width: 2rem; 
+  height: 2rem; 
+  border-radius: 9999px; 
+  top: 0;
+  right: 0;
+  bottom: 0; 
+  left: 0; 
+  margin-top: 0.25rem; 
+}
+.onlineStatus{
+  position: absolute; 
+  z-index: 20; 
+  width: 0.75rem; 
+  height: 0.75rem;
+  border-radius: 9999px; 
+  bottom: 0; 
+  left: 0; 
+  background-color: #5CDC48; 
+}
+/*Side bar*/
+
+.SideBarContainer{
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #111827; 
+  color: #000; 
+  background-color: "#112C56";
+  padding: 1.7rem;
+}
+
+.Logo{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.SideBarIcons{ 
+  padding-top: 0.5rem;
+}
+
+.IconList {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 0;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.IconList:hover {
+  background-color: blue;
+}
+
+
+
+/* Signout */
+.Signoutmain{
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/*AccordianView*/
+.accordianMain{
+  border-bottom: 1px solid #d1d5db; 
+}
+.accordianHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #f7fafc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.accordianHeader:hover {
+  background-color: #bfdbfe;
+}
+.dropButton {
+  display: flex;
+  align-items: center;
+}
+
+.arrow{
+    margin-left: 0.5rem;
+    background-color: white; 
+    border-radius: 0.25rem;
+  
+}
+
+.subView{
+  position: relative; 
+  padding-left: 2rem; 
+  background-color: white; 
+  width: 100%; 
+}
+
+.branchHorizontal{
+  position: absolute; 
+  left: 18px;
+  top: 0; 
+  border-left-width: 2px; 
+  border-left-color: #93c5fd;
+}
+
+.subtasks{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem; 
+  position: relative;
+ 
+}
+.branchVertical{
+  position: absolute;
+  left: -0.875rem;
+  bottom: 1.25rem;
+  width: 2.5rem;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-color: #93c5fd; 
+  border-style: solid;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  z-index: 0;
+}
+
+.subTaskDesc {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem; 
+}
+.status {
+  padding: 0.25rem 0.5rem; 
+  font-size: 0.875rem; 
+  margin-right: 1rem; 
+  border-radius: 0.25rem;
+  color: #111827; 
+}
+
+.status-billable {
+  background-color: #d1fae5; 
+  width: 90px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; 
+}
+
+.status-nonbillable {
+  background-color: #fee2e2;
+}
+.custom-margin {
+  margin-left: 1rem;
+  margin-right: 260px;
+}
+.accordian-container {
+  max-width: 100%; 
+  margin-left: auto; 
+  margin-right: auto;
+  padding: 1rem; 
+}
+/*Add Logs*/
+.addLogMain{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 90px;
+  margin-top: 9px; 
+  justify-content: space-between; 
+}

@@ -1,0 +1,65 @@
+{
+    "projects": [
+      {
+        "projectId": "P001",
+        "projectname": "DTS",
+        "projectcount": 10,
+        "projectprogression": "In Progress"
+      },
+      {
+        "projectId": "P002",
+        "projectname": "Online Shopping",
+        "projectcount": 20,
+        "projectprogression": "Completed"
+      },
+      {
+        "projectId": "P003",
+        "projectname": "Semi-monthly logs",
+        "projectcount": 15,
+        "projectprogression": "In Review"
+      },
+      {
+        "projectId": "P004",
+        "projectname": "Monthly logs",
+        "projectcount": 25,
+        "projectprogression": "In Progress"
+      },
+      {
+        "projectId": "P005",
+        "projectname": "E-commerce Website",
+        "projectcount": 12,
+        "projectprogression": "Not Started"
+      },
+      {
+        "projectId": "P006",
+        "projectname": "Mobile App Development",
+        "projectcount": 18,
+        "projectprogression": "Completed"
+      },
+      {
+        "projectId": "P007",
+        "projectname": "Cloud Migration",
+        "projectcount": 30,
+        "projectprogression": "In Progress"
+      },
+      {
+        "projectId": "P008",
+        "projectname": "AI Chatbot",
+        "projectcount": 8,
+        "projectprogression": "In Review"
+      },
+      {
+        "projectId": "P009",
+        "projectname": "Data Analysis",
+        "projectcount": 22,
+        "projectprogression": "Completed"
+      },
+      {
+        "projectId": "P010",
+        "projectname": "Website Redesign",
+        "projectcount": 14,
+        "projectprogression": "In Progress"
+      }
+    ]
+  }
+  
