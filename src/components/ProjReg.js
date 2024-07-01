@@ -70,7 +70,7 @@ const ProjReg = () => {
         setSelectedMember(''); setFilteredSuggestions([]); setError(''); setErrors('');
         setSelectedDesignation(''); setAvailableDesignations(designations); setIsDropdownVisible(false);
         setSelectedMemberId(''); setSelectedMemberEmail(''); setSelectedFiles([]);
-        const teamem = await axios.get('http://192.168.1.41:9000/api/employee/all')
+        const teamem = await axios.get('http://192.168.2.38:9000/api/employee/all')
         setAvailableMembers(teamem.data.data)
     }
 
@@ -84,11 +84,11 @@ const ProjReg = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const pId = await axios.get('http://192.168.1.41:8080/api/projects/getall');
+                const pId = await axios.get('http://192.168.1.68:8080/api/projects/getall');
                 setIds(pId.data.data.map(project => project.projectId));
-                const pName = await axios.get('http://192.168.1.41:8080/api/projects/getall');
+                const pName = await axios.get('http://192.168.1.68:8080/api/projects/getall');
                 setProjectNames(pName.data.data.map(project => project.projectName));
-                const teamem = await axios.get('http://192.168.1.41:9000/api/employee/all')
+                const teamem = await axios.get('http://192.168.2.38:9000/api/employee/all')
                 setAvailableMembers(teamem.data.data)
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -127,7 +127,7 @@ const ProjReg = () => {
     const updatedBy = "Francis";
     const handleAddMember = (member, designation) => {
         // Find the selected member object
-        const selectedMemberObj = availableMembers.find(m => m.employeeName === member);
+        const selectedMemberObj = availableMembers.find(m => m.firstName === member);
 
         if (selectedMemberObj) {
             const { employeeId, emailId } = selectedMemberObj; // Destructure id and email from the selected member object
@@ -150,7 +150,7 @@ const ProjReg = () => {
             }));
 
             console.log(selectedMember, selectedDesignation)
-            setAvailableMembers(prevMembers => prevMembers.filter(m => m.employeeName !== member));
+            setAvailableMembers(prevMembers => prevMembers.filter(m => m.firstName !== member));
             setSelectedMember('');
             setSelectedDesignation('');
             setAvailableDesignations(prevDesignations => prevDesignations.filter(d => d !== designation));
@@ -174,7 +174,7 @@ const ProjReg = () => {
             setAvailableMembers(prevMembers => [
                 ...prevMembers,
                 {
-                    employeeName: removedMember.projectMembersName,
+                    firstName: removedMember.projectMembersName,
                     employeeId: removedMember.projectMemberId,
                     emailId: removedMember.projectMemberEmailId
                 }
@@ -314,27 +314,19 @@ const ProjReg = () => {
         const lowerCaseValue = value.toLowerCase();
         return !projectNames.some(name => name.toLowerCase() === lowerCaseValue);
     };
-    // const isIdUnique = (value) => {
-    //     const lowerCaseValue = value.toLowerCase();
-    //     return !ids.some(name => name.toLowerCase() === lowerCaseValue)
-    // };
-    //
-
     //Submission Functions
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://192.168.1.41:8080/api/projects/add', formData)
+        await axios.post('http://192.168.1.68:8080/api/projects/add', formData)
             .then(response => {
                 alert("Project Has Been Added Successfully")
                 console.log(formData)
             })
             .catch(error => {
-                alert('Enter Data in all the fields')
-                console.error('Error occurred:', error);
+                console.error('Error Uploading Task.....');
             });
         console.log(formData)
         toggleNav()
-
     };
 
     return (
@@ -467,10 +459,10 @@ const ProjReg = () => {
                                         <div className='flex justify-evenly font-poppins w-[90%]'>
                                             <select
                                                 className='text-sm font-poppins bg-blue-50 w-[45%] rounded p-3 text-gray-700'
-                                                value={selectedMember ? selectedMember.employeeName : ""}
+                                                value={selectedMember ? selectedMember.firstName : ""}
                                                 onChange={(e) => {
                                                     const selectedEmployee = JSON.parse(e.target.value);
-                                                    setSelectedMember(selectedEmployee.employeeName);
+                                                    setSelectedMember(selectedEmployee.firstName);
                                                     setSelectedMemberId(selectedEmployee.employeeId);
                                                     setSelectedMemberEmail(selectedEmployee.emailId);
                                                 }}
@@ -480,7 +472,7 @@ const ProjReg = () => {
                                                     <option key={member.employeeId}
                                                         value={JSON.stringify(member)}
                                                     >
-                                                        {member.employeeId} - {member.employeeName}
+                                                        {member.employeeId} - {member.firstName}
                                                     </option>
                                                 ))}
                                             </select>

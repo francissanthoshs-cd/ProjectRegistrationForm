@@ -45,7 +45,7 @@ const TaskLog = () => {
     const toggleNav = async () => {
         setNav(!nav)
         setForms(intialData)
-        const projs = await axios.get('http://192.168.1.41:8080/api/projects/getall')
+        const projs = await axios.get('http://192.168.1.68:8080/api/projects/getall')
         setProjects(projs.data.data)
     }
 
@@ -174,9 +174,9 @@ const TaskLog = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const tl = await axios.get('http://192.168.1.41:9000/api/employee/all')
-                setAvailableMembers(tl.data.data.map(project => project.employeeName))
-                const jobs = await axios.get('http://192.168.1.41:8080/api/jobs/getall')
+                const tl = await axios.get('http://192.168.2.38:9000/api/employee/all')
+                setAvailableMembers(tl.data.data.map(project => project.firstName))
+                const jobs = await axios.get('http://192.168.2.38:9090/api/jobs/getall')
                 setAllJobs(jobs.data.data.map(job => job.jobName))
                 console.log(allJobs)
             } catch (error) {
@@ -263,11 +263,11 @@ const TaskLog = () => {
     //Form Submission
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://192.168.1.41:8080/api/jobs/add', forms)
+        await axios.post('http://192.168.1.68:8080/api/jobs/add', forms)
             .then((response) => {
                 alert("Task Uploaded Successfully")
             }).catch((error) => {
-                console.log("Enter Data")
+                console.log("Error Uploading Task")
                 alert(error)
             })
         console.log(forms)
@@ -295,7 +295,7 @@ const TaskLog = () => {
                                 <div className='projname mt-2 ml-5'>
                                     <div>
                                         <label className='font-poppins font-semibold text-sm' htmlFor='projname'>Project Name
-                                            <span className='text-red-700'>*</span>
+                                        <span className='text-red-700'>*</span>
                                         </label>
                                     </div>
                                     <div className='flex'>
