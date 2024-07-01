@@ -84,9 +84,9 @@ const ProjReg = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const pId = await axios.get('http://192.168.1.68:8080/api/projects/getall');
+                const pId = await axios.get('http://192.168.2.38:9090/api/projects/getall');
                 setIds(pId.data.data.map(project => project.projectId));
-                const pName = await axios.get('http://192.168.1.68:8080/api/projects/getall');
+                const pName = await axios.get('http://192.168.2.38:9090/api/projects/getall');
                 setProjectNames(pName.data.data.map(project => project.projectName));
                 const teamem = await axios.get('http://192.168.2.38:9000/api/employee/all')
                 setAvailableMembers(teamem.data.data)
@@ -317,7 +317,7 @@ const ProjReg = () => {
     //Submission Functions
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://192.168.1.68:8080/api/projects/add', formData)
+        await axios.post('http://192.168.2.38:9090/api/projects/add', formData)
             .then(response => {
                 alert("Project Has Been Added Successfully")
                 console.log(formData)

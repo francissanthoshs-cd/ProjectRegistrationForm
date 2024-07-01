@@ -45,7 +45,7 @@ const TaskLog = () => {
     const toggleNav = async () => {
         setNav(!nav)
         setForms(intialData)
-        const projs = await axios.get('http://192.168.1.68:8080/api/projects/getall')
+        const projs = await axios.get('http://192.168.2.38:9090/api/projects/getall')
         setProjects(projs.data.data)
     }
 
@@ -263,7 +263,7 @@ const TaskLog = () => {
     //Form Submission
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://192.168.1.68:8080/api/jobs/add', forms)
+        await axios.post('http://192.168.2.38:9090/api/jobs/add', forms)
             .then((response) => {
                 alert("Task Uploaded Successfully")
             }).catch((error) => {
