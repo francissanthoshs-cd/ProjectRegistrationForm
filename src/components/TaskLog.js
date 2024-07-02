@@ -154,6 +154,7 @@ const TaskLog = () => {
         const lowerCaseValue = value.toLowerCase();
         return allJobs.some(name => name.toLowerCase() === lowerCaseValue);
     };
+
     const jobList = [
         { id: "A1", name: "Research and Analysis" },
         { id: "B2", name: "Design and Prototyping" },
@@ -263,15 +264,19 @@ const TaskLog = () => {
     //Form Submission
     const onSubmit = async (e) => {
         e.preventDefault();
+        const isEmptyField = Object.values(forms).some(value => 
+            typeof value === 'string' && value.trim() === ''
+          );
+        isEmptyField ? (alert('Please fill in the Details')):
         await axios.post('http://192.168.2.38:9090/api/jobs/add', forms)
             .then((response) => {
-                alert("Task Uploaded Successfully")
+                alert("Task Updated Successfully")
+                toggleNav()
             }).catch((error) => {
-                console.log("Error Uploading Task")
-                alert(error)
+                alert("Error Uploading Task....")
             })
         console.log(forms)
-        toggleNav()
+        
     }
 
     return (
