@@ -272,17 +272,23 @@ const ProjReg = () => {
             }
         } else {
             // Handle normal input changes
-            if (name === 'projectStartDate' && !formData.submissionDate) {
-                setFormData(prevFormData => ({ ...prevFormData, submissionDate: value }));
-            } else if (name === 'projectStartDate' && value > formData.submissionDate) {
-                alert("Start Date cannot be greater than End Date");
-                return;
-            } else if (name === 'submissionDate' && formData.projectStartDate && value < formData.projectStartDate) {
-                alert("End Date cannot be less than Start Date");
-                return;
-            }
             setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
         }
+    };
+
+    const onDateBlur = (e) => {
+        const { name, value } = e.target;
+        if (name === 'projectStartDate' && !formData.submissionDate) {
+            setFormData(prevFormData => ({ ...prevFormData, submissionDate: value }));
+        } else if (name === 'projectStartDate' && value > formData.submissionDate) {
+            alert("Start Date cannot be greater than End Date");
+            return;
+        } else if (name === 'submissionDate' && formData.projectStartDate && value < formData.projectStartDate) {
+            alert("End Date cannot be less than Start Date");
+            return;
+        }
+        console.log('Date entered:', formData.projectStartDate);
+        e.target.blur();
     };
 
     //Checks Validation For Project Id and Project Name
@@ -315,16 +321,17 @@ const ProjReg = () => {
             typeof value === 'string' && value.trim() === ''
           );
         isEmptyField ? (alert('Please fill in the Details')):
-        // await axios.post('http://192.168.2.38:9090/api/projects/add', formData)
-        //     .then(response => {
-        //         alert("Project Has Been Added Successfully")
-        //         console.log(formData)
-        //     })
-        //     .catch(error => {
-        //         console.error('Error Uploading Task.....');
-        //     });
+        
+        await axios.post('http://192.168.2.38:9090/api/projects/add', formData)
+            .then(response => {
+                alert("Project Has Been Added Successfully")
+                console.log(formData)
+                toggleNav()
+            })
+            .catch(error => {
+                alert('Error Uploading Task.....');
+            });
         console.log(formData)
-        toggleNav()
     };
 
     return (
@@ -344,26 +351,6 @@ const ProjReg = () => {
                         <form onSubmit={onSubmit} className="bg-white mt-1 px-4 pt-3 mb-1 w-full">
                             <div className='mx-2'>
 
-                                {/* Project ID */}
-                                {/* <div className='projectId'>
-                                    <div>
-                                        <label className='font-poppins text-sm font-semibold'>Project Id <span className='text-red-600'>*</span></label>
-                                    </div>
-                                    <div>
-                                        <input
-                                            type="text"
-                                            name="projectId"
-                                            id="projectId"
-                                            placeholder='Enter the Project Id'
-                                            value={formData.projectId}
-                                            onChange={withValid}
-                                            className=" text-sm font-poppins bg-blue-50 rounded w-[90%] p-3 text-gray-700 "
-                                            required />
-                                    </div>
-                                    {errors.projectId && (
-                                        <span className="text-red-500 text-sm">{errors.projectId}</span>
-                                    )}
-                                </div> */}
 
                                 {/* Project Name */}
                                 <div className='projectName'>
@@ -523,6 +510,7 @@ const ProjReg = () => {
                                                     placeholder='Enter the Project Start Date'
                                                     value={formData.projectStartDate}
                                                     onChange={onInputChange}
+                                                    onBlur={onDateBlur}
                                                     className=" font-poppins bg-blue-50 rounded w-full py-2 px-3 "
                                                     required />
                                             </acronym>
@@ -541,6 +529,7 @@ const ProjReg = () => {
                                                 id="submissionDate"
                                                 value={formData.submissionDate}
                                                 onChange={onInputChange}
+                                                onBlur={onDateBlur}
                                                 className="font-poppins bg-blue-50 rounded py-2 px-3 w-full"
                                                 required />
                                             </acronym>
