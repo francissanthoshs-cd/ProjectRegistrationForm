@@ -296,13 +296,7 @@ const ProjReg = () => {
                 errorMessage = '* Must be unique';
             }
         }
-        // if (name === 'projectId') {
-        //     if (value.trim() === '') {
-        //         errorMessage = '* Valid Input is Required';
-        //     } else if (!isIdUnique(value)) {
-        //         errorMessage = '* Must be unique';
-        //     }
-        // }
+        
         setErrors({ ...errors, [name]: errorMessage });
         const hasErrors = Object.values({ ...errors, [name]: errorMessage }).some(error => error !== '');
         setIsButtonDisabled(hasErrors);
@@ -317,14 +311,18 @@ const ProjReg = () => {
     //Submission Functions
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://192.168.2.38:9090/api/projects/add', formData)
-            .then(response => {
-                alert("Project Has Been Added Successfully")
-                console.log(formData)
-            })
-            .catch(error => {
-                console.error('Error Uploading Task.....');
-            });
+        const isEmptyField = Object.values(formData).some(value => 
+            typeof value === 'string' && value.trim() === ''
+          );
+        isEmptyField ? (alert('Please fill in the Details')):
+        // await axios.post('http://192.168.2.38:9090/api/projects/add', formData)
+        //     .then(response => {
+        //         alert("Project Has Been Added Successfully")
+        //         console.log(formData)
+        //     })
+        //     .catch(error => {
+        //         console.error('Error Uploading Task.....');
+        //     });
         console.log(formData)
         toggleNav()
     };
