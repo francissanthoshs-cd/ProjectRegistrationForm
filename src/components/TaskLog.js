@@ -449,22 +449,17 @@ const TaskLog = () => {
                                 {/* Name of the Person who assigned the task */}
                                 <div className='assignees mt-2 ml-5'>
                                     <div className='assignees'>
-                                        <label className='font-poppins text-sm font-semibold' htmlFor='assignees'>Tasks Assigned By
+                                        <label className='font-poppins text-sm font-semibold' htmlFor='assignees'>Tasks Created By
                                             <span className='text-red-700'>*</span> </label>
                                     </div>
                                     <div className=' w-[90%]'>
-                                        <select name="taskAssignedBy" id="taskAssignedBy"
+                                        <input name="taskAssignedBy" id="taskAssignedBy"
                                             onChange={withoutValid}
-                                            value={forms.taskAssignedBy}
+                                            value={forms.taskAssignedBy= 'Nickson'}
                                             placeholder='Enter the Job Name'
                                             className="bg-blue-50 text-sm text-gray-900 rounded-lg font-poppins
-                          font-extralight block w-full p-2.5"
-                                            required={true}>
-                                            <option value="" disabled>Select a Team Leader</option>
-                                            {availableMembers.map((member, index) => (
-                                                <option key={index} value={member}>{member}</option>
-                                            ))}
-                                        </select>
+                                                font-extralight block w-full p-2.5"
+                                            disabled/>
                                     </div>
                                 </div>
 

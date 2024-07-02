@@ -435,6 +435,48 @@ const ProjReg = () => {
                                     </div>
                                 </div>
 
+{/* Project Start Date and Submission Date */}
+<div className='flex w-[90%] justify-between'>
+                                    <div className='projectStartDate w-[45%]'>
+                                        <div>
+                                            <label className='font-poppins text-sm font-semibold'>Start Date<span className='text-red-800 font-bold'>*</span></label>
+                                        </div>
+                                        <div className='flex-1'>
+                                            <acronym title="Project Start Date">
+                                                <input
+                                                    type="date"
+                                                    name="projectStartDate"
+                                                    id="projectStartDate"
+                                                    placeholder='Enter the Project Start Date'
+                                                    value={formData.projectStartDate}
+                                                    onChange={onInputChange}
+                                                    onBlur={onDateBlur}
+                                                    className=" font-poppins bg-blue-50 rounded w-full py-2 px-3 "
+                                                    required />
+                                            </acronym>
+                                        </div>
+
+                                    </div>
+
+                                    <div className='projectSubmissionDate w-[45%]'>
+                                        <div>
+                                            <label className='font-poppins text-sm font-semibold'>End Date<span className='text-red-800 font-bold'>*</span></label>
+                                        </div>
+                                        <div className='flex-1'>
+                                            <acronym title="Project Submission Date"><input
+                                                type="date"
+                                                name="submissionDate"
+                                                id="submissionDate"
+                                                value={formData.submissionDate}
+                                                onChange={onInputChange}
+                                                onBlur={onDateBlur}
+                                                className="font-poppins bg-blue-50 rounded py-2 px-3 w-full"
+                                                required />
+                                            </acronym>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 {/* Project Team */}
                                 <div className='projectTeam'>
                                     <div>
@@ -495,47 +537,7 @@ const ProjReg = () => {
                                     </div>
                                 </div>
 
-                                {/* Project Start Date and Submission Date */}
-                                <div className='flex w-[90%] justify-between'>
-                                    <div className='projectStartDate w-[45%]'>
-                                        <div>
-                                            <label className='font-poppins text-sm font-semibold'>Start Date<span className='text-red-800 font-bold'>*</span></label>
-                                        </div>
-                                        <div className='flex-1'>
-                                            <acronym title="Project Start Date">
-                                                <input
-                                                    type="date"
-                                                    name="projectStartDate"
-                                                    id="projectStartDate"
-                                                    placeholder='Enter the Project Start Date'
-                                                    value={formData.projectStartDate}
-                                                    onChange={onInputChange}
-                                                    onBlur={onDateBlur}
-                                                    className=" font-poppins bg-blue-50 rounded w-full py-2 px-3 "
-                                                    required />
-                                            </acronym>
-                                        </div>
-
-                                    </div>
-
-                                    <div className='projectSubmissionDate w-[45%]'>
-                                        <div>
-                                            <label className='font-poppins text-sm font-semibold'>End Date<span className='text-red-800 font-bold'>*</span></label>
-                                        </div>
-                                        <div className='flex-1'>
-                                            <acronym title="Project Submission Date"><input
-                                                type="date"
-                                                name="submissionDate"
-                                                id="submissionDate"
-                                                value={formData.submissionDate}
-                                                onChange={onInputChange}
-                                                onBlur={onDateBlur}
-                                                className="font-poppins bg-blue-50 rounded py-2 px-3 w-full"
-                                                required />
-                                            </acronym>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                                 {/* 
                                 <div className='taskno mt-2'>
