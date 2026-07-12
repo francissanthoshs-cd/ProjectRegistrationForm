@@ -4,7 +4,7 @@ import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 
 function Filter({ onClose }) {
-  const [project, setProject] = useState('');
+  const [project, setProject] = React.useState('');
   const [job, setJob] = useState('');
   const [billable, setBillable] = useState('Billable');
   const [status, setStatus] = useState('Completed');
