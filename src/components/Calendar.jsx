@@ -9,9 +9,9 @@ import { CiImport } from "react-icons/ci";
 import { CiExport } from "react-icons/ci";
 import Filter from "./Filter";
 function Calendar({ onFilterClick }) {
-  const [hidden, setHidden] = React.useState(false);
+  const [hidden, setHidden] = useState(false);
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
