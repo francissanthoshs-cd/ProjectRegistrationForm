@@ -11,7 +11,7 @@ import Filter from "./Filter";
 function Calendar({ onFilterClick }) {
   const [hidden, setHidden] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = (new Date());
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
