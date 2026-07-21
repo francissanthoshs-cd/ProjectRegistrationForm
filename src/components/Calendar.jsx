@@ -11,7 +11,7 @@ import Filter from "./Filter";
 function Calendar({ onFilterClick }) {
   const [hidden, setHidden] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = (new Date());
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -27,12 +27,12 @@ function Calendar({ onFilterClick }) {
     setSelectedDate(nextDate);
   };
 
-  const formatDate = (date) => {
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
+  // const formatDate = (date) => {
+  //   const day = date.getDate().toString().padStart(2, "0");
+  //   const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  //   const year = date.getFullYear();
+  //   return `${day}/${month}/${year}`;
+  // };
   return (
     <div className="  flex flex-col w-full h-50 p-5 space-y-5 justify-between">
       <div className="flex flex-row space-x-2 ">
